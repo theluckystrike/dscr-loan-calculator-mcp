@@ -1,0 +1,52 @@
+{
+  "name": "dscr-loan-calculator-mcp",
+  "version": "1.0.0",
+  "description": "DSCR loan calculator MCP server: debt service coverage ratio, max loan, rent needed, scenarios and amortization for rental property loans.",
+  "type": "module",
+  "license": "MIT",
+  "author": "theluckystrike",
+  "mcpName": "io.github.theluckystrike/dscr-loan-calculator-mcp",
+  "bin": {
+    "dscr-loan-calculator-mcp": "dist/stdio.js"
+  },
+  "main": "dist/core.js",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "DATA_SOURCES.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && chmod +x dist/stdio.js",
+    "test": "node --test",
+    "fixtures": "python3 scripts/expected.py > test/fixtures.json",
+    "deploy": "wrangler deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theluckystrike/dscr-loan-calculator-mcp.git"
+  },
+  "homepage": "https://dscrradar.com/dscr-loan-calculator/",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "dscr",
+    "dscr-loan",
+    "debt-service-coverage-ratio",
+    "real-estate",
+    "rental-property",
+    "mortgage-calculator"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "typescript": "^5.9.3"
+  }
+}

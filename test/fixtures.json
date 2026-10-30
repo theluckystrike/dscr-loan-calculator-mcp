@@ -1,0 +1,516 @@
+[
+ {
+  "name": "dscr basic 300k 7% 30y",
+  "tool": "calculate_dscr",
+  "input": {
+   "monthly_rent": 2500,
+   "loan_amount": 300000,
+   "annual_rate_pct": 7,
+   "term_years": 30,
+   "interest_only": false,
+   "vacancy_pct": 0,
+   "annual_property_tax": 3600,
+   "annual_insurance": 1200,
+   "monthly_hoa": 0,
+   "monthly_other_housing": 0
+  },
+  "expect": {
+   "monthly.principal_and_interest": 1995.91,
+   "monthly.pitia": 2395.91,
+   "qualifying_monthly_rent": 2500.0,
+   "dscr": 1.04,
+   "tier.code": "1.00_to_1.24"
+  }
+ },
+ {
+  "name": "dscr 1.25+ band",
+  "tool": "calculate_dscr",
+  "input": {
+   "monthly_rent": 3500,
+   "loan_amount": 250000,
+   "annual_rate_pct": 6.5,
+   "term_years": 30,
+   "interest_only": false,
+   "vacancy_pct": 0,
+   "annual_property_tax": 3000,
+   "annual_insurance": 1500,
+   "monthly_hoa": 50,
+   "monthly_other_housing": 0
+  },
+  "expect": {
+   "monthly.principal_and_interest": 1580.17,
+   "monthly.pitia": 2005.17,
+   "qualifying_monthly_rent": 3500.0,
+   "dscr": 1.74,
+   "tier.code": "1.25_plus"
+  }
+ },
+ {
+  "name": "dscr 0.75-0.99 band",
+  "tool": "calculate_dscr",
+  "input": {
+   "monthly_rent": 2000,
+   "loan_amount": 320000,
+   "annual_rate_pct": 7.75,
+   "term_years": 30,
+   "interest_only": false,
+   "vacancy_pct": 0,
+   "annual_property_tax": 4200,
+   "annual_insurance": 1800,
+   "monthly_hoa": 0,
+   "monthly_other_housing": 0
+  },
+  "expect": {
+   "monthly.principal_and_interest": 2292.52,
+   "monthly.pitia": 2792.52,
+   "qualifying_monthly_rent": 2000.0,
+   "dscr": 0.71,
+   "tier.code": "under_0.75"
+  }
+ },
+ {
+  "name": "dscr under 0.75 band",
+  "tool": "calculate_dscr",
+  "input": {
+   "monthly_rent": 1500,
+   "loan_amount": 350000,
+   "annual_rate_pct": 8,
+   "term_years": 30,
+   "interest_only": false,
+   "vacancy_pct": 0,
+   "annual_property_tax": 6000,
+   "annual_insurance": 2400,
+   "monthly_hoa": 200,
+   "monthly_other_housing": 0
+  },
+  "expect": {
+   "monthly.principal_and_interest": 2568.18,
+   "monthly.pitia": 3468.18,
+   "qualifying_monthly_rent": 1500.0,
+   "dscr": 0.43,
+   "tier.code": "under_0.75"
+  }
+ },
+ {
+  "name": "dscr interest-only",
+  "tool": "calculate_dscr",
+  "input": {
+   "monthly_rent": 2800,
+   "loan_amount": 360000,
+   "annual_rate_pct": 7.25,
+   "term_years": 30,
+   "interest_only": true,
+   "vacancy_pct": 0,
+   "annual_property_tax": 4000,
+   "annual_insurance": 1600,
+   "monthly_hoa": 0,
+   "monthly_other_housing": 0
+  },
+  "expect": {
+   "monthly.principal_and_interest": 2175.0,
+   "monthly.pitia": 2641.66,
+   "qualifying_monthly_rent": 2800.0,
+   "dscr": 1.05,
+   "tier.code": "1.00_to_1.24"
+  }
+ },
+ {
+  "name": "dscr with 5% vacancy and other costs",
+  "tool": "calculate_dscr",
+  "input": {
+   "monthly_rent": 3100,
+   "loan_amount": 280000,
+   "annual_rate_pct": 6.875,
+   "term_years": 30,
+   "interest_only": false,
+   "vacancy_pct": 5,
+   "annual_property_tax": 3900,
+   "annual_insurance": 1450,
+   "monthly_hoa": 25,
+   "monthly_other_housing": 40
+  },
+  "expect": {
+   "monthly.principal_and_interest": 1839.4,
+   "monthly.pitia": 2350.23,
+   "qualifying_monthly_rent": 2945.0,
+   "dscr": 1.25,
+   "tier.code": "1.25_plus"
+  }
+ },
+ {
+  "name": "dscr 15-year term",
+  "tool": "calculate_dscr",
+  "input": {
+   "monthly_rent": 4000,
+   "loan_amount": 300000,
+   "annual_rate_pct": 6.25,
+   "term_years": 15,
+   "interest_only": false,
+   "vacancy_pct": 0,
+   "annual_property_tax": 3000,
+   "annual_insurance": 1200,
+   "monthly_hoa": 0,
+   "monthly_other_housing": 0
+  },
+  "expect": {
+   "monthly.principal_and_interest": 2572.27,
+   "monthly.pitia": 2922.27,
+   "qualifying_monthly_rent": 4000.0,
+   "dscr": 1.36,
+   "tier.code": "1.25_plus"
+  }
+ },
+ {
+  "name": "dscr 0% rate",
+  "tool": "calculate_dscr",
+  "input": {
+   "monthly_rent": 1000,
+   "loan_amount": 120000,
+   "annual_rate_pct": 0,
+   "term_years": 30,
+   "interest_only": false,
+   "vacancy_pct": 0,
+   "annual_property_tax": 1200,
+   "annual_insurance": 600,
+   "monthly_hoa": 0,
+   "monthly_other_housing": 0
+  },
+  "expect": {
+   "monthly.principal_and_interest": 333.33,
+   "monthly.pitia": 483.33,
+   "qualifying_monthly_rent": 1000.0,
+   "dscr": 2.06,
+   "tier.code": "1.25_plus"
+  }
+ },
+ {
+  "name": "dscr from price and down payment",
+  "tool": "calculate_dscr",
+  "input": {
+   "monthly_rent": 3000,
+   "annual_rate_pct": 7.5,
+   "term_years": 30,
+   "interest_only": false,
+   "vacancy_pct": 0,
+   "annual_property_tax": 4800,
+   "annual_insurance": 1800,
+   "monthly_hoa": 0,
+   "monthly_other_housing": 0,
+   "purchase_price": 400000,
+   "down_payment_pct": 25
+  },
+  "expect": {
+   "monthly.principal_and_interest": 2097.64,
+   "monthly.pitia": 2647.64,
+   "qualifying_monthly_rent": 3000.0,
+   "dscr": 1.13,
+   "tier.code": "1.00_to_1.24"
+  }
+ },
+ {
+  "name": "max loan at 1.25",
+  "tool": "max_loan_for_target_dscr",
+  "input": {
+   "monthly_rent": 3000,
+   "annual_rate_pct": 7.5,
+   "target_dscr": 1.25,
+   "term_years": 30,
+   "interest_only": false,
+   "vacancy_pct": 0,
+   "annual_property_tax": 4800,
+   "annual_insurance": 1800,
+   "monthly_hoa": 0,
+   "purchase_price": 400000
+  },
+  "expect": {
+   "max_loan_amount": 264583,
+   "min_down_payment": 135417.0
+  }
+ },
+ {
+  "name": "max loan at 1.00 interest-only",
+  "tool": "max_loan_for_target_dscr",
+  "input": {
+   "monthly_rent": 2500,
+   "annual_rate_pct": 7,
+   "target_dscr": 1.0,
+   "term_years": 30,
+   "interest_only": true,
+   "vacancy_pct": 0,
+   "annual_property_tax": 3600,
+   "annual_insurance": 1200,
+   "monthly_hoa": 0
+  },
+  "expect": {
+   "max_loan_amount": 360000
+  }
+ },
+ {
+  "name": "max loan capped by 80% LTV",
+  "tool": "max_loan_for_target_dscr",
+  "input": {
+   "monthly_rent": 5000,
+   "annual_rate_pct": 6.5,
+   "target_dscr": 1.0,
+   "term_years": 30,
+   "interest_only": false,
+   "vacancy_pct": 0,
+   "annual_property_tax": 3000,
+   "annual_insurance": 1200,
+   "monthly_hoa": 0,
+   "purchase_price": 300000,
+   "max_ltv_pct": 80
+  },
+  "expect": {
+   "max_loan_amount": 240000,
+   "min_down_payment": 60000.0
+  }
+ },
+ {
+  "name": "max loan none when costs exceed rent",
+  "tool": "max_loan_for_target_dscr",
+  "input": {
+   "monthly_rent": 800,
+   "annual_rate_pct": 7,
+   "target_dscr": 1.25,
+   "term_years": 30,
+   "interest_only": false,
+   "vacancy_pct": 0,
+   "annual_property_tax": 9000,
+   "annual_insurance": 3000,
+   "monthly_hoa": 0
+  },
+  "expect": {
+   "max_loan_amount": 0
+  }
+ },
+ {
+  "name": "rent needed 1.25",
+  "tool": "rent_needed_for_target_dscr",
+  "input": {
+   "loan_amount": 300000,
+   "annual_rate_pct": 7,
+   "target_dscr": 1.25,
+   "term_years": 30,
+   "interest_only": false,
+   "vacancy_pct": 0,
+   "annual_property_tax": 3600,
+   "annual_insurance": 1200,
+   "monthly_hoa": 0
+  },
+  "expect": {
+   "monthly.pitia": 2395.91,
+   "rent_needed": 2994.89,
+   "rent_needed_whole_dollars": 2995
+  }
+ },
+ {
+  "name": "rent needed 1.00 with 8% vacancy",
+  "tool": "rent_needed_for_target_dscr",
+  "input": {
+   "loan_amount": 250000,
+   "annual_rate_pct": 7.125,
+   "target_dscr": 1.0,
+   "term_years": 30,
+   "interest_only": false,
+   "vacancy_pct": 8,
+   "annual_property_tax": 3000,
+   "annual_insurance": 1500,
+   "monthly_hoa": 75
+  },
+  "expect": {
+   "monthly.pitia": 2134.3,
+   "rent_needed": 2319.89,
+   "rent_needed_whole_dollars": 2320
+  }
+ },
+ {
+  "name": "rent needed 1.20 interest-only",
+  "tool": "rent_needed_for_target_dscr",
+  "input": {
+   "loan_amount": 400000,
+   "annual_rate_pct": 7.5,
+   "target_dscr": 1.2,
+   "term_years": 30,
+   "interest_only": true,
+   "vacancy_pct": 0,
+   "annual_property_tax": 5000,
+   "annual_insurance": 2000,
+   "monthly_hoa": 0
+  },
+  "expect": {
+   "monthly.pitia": 3083.34,
+   "rent_needed": 3700.01,
+   "rent_needed_whole_dollars": 3701
+  }
+ },
+ {
+  "name": "amort 300k 7% 30y",
+  "tool": "amortization_summary",
+  "input": {
+   "loan_amount": 300000,
+   "annual_rate_pct": 7,
+   "term_years": 30,
+   "interest_only_years": 0,
+   "balance_after_years": [
+    5,
+    10
+   ]
+  },
+  "expect": {
+   "monthly_principal_and_interest": 1995.91,
+   "total_interest": 418524.05,
+   "final_payment": 1992.36,
+   "number_of_payments": 360,
+   "balances.0.balance": 282394.53,
+   "balances.1.balance": 257436.62
+  }
+ },
+ {
+  "name": "amort 400k 6.25% 15y",
+  "tool": "amortization_summary",
+  "input": {
+   "loan_amount": 400000,
+   "annual_rate_pct": 6.25,
+   "term_years": 15,
+   "interest_only_years": 0,
+   "balance_after_years": [
+    1,
+    5,
+    10,
+    15
+   ]
+  },
+  "expect": {
+   "monthly_principal_and_interest": 3429.69,
+   "total_interest": 217344.58,
+   "final_payment": 3430.07,
+   "number_of_payments": 180,
+   "balances.0.balance": 383372.76,
+   "balances.1.balance": 305458.64,
+   "balances.2.balance": 176340.68,
+   "balances.3.balance": 0.0
+  }
+ },
+ {
+  "name": "amort 10-yr IO then 20-yr amortizing",
+  "tool": "amortization_summary",
+  "input": {
+   "loan_amount": 500000,
+   "annual_rate_pct": 7.5,
+   "term_years": 30,
+   "interest_only_years": 10,
+   "balance_after_years": [
+    10,
+    20
+   ]
+  },
+  "expect": {
+   "monthly_principal_and_interest": 4027.97,
+   "total_interest": 841710.72,
+   "final_payment": 4025.89,
+   "number_of_payments": 360,
+   "balances.0.balance": 500000.0,
+   "balances.1.balance": 339334.32
+  }
+ },
+ {
+  "name": "amort 0% 10y",
+  "tool": "amortization_summary",
+  "input": {
+   "loan_amount": 120000,
+   "annual_rate_pct": 0,
+   "term_years": 10,
+   "interest_only_years": 0,
+   "balance_after_years": [
+    5
+   ]
+  },
+  "expect": {
+   "monthly_principal_and_interest": 1000.0,
+   "total_interest": 0.0,
+   "final_payment": 1000.0,
+   "number_of_payments": 120,
+   "balances.0.balance": 60000.0
+  }
+ },
+ {
+  "name": "compare 3 scenarios incl. interest-only",
+  "tool": "compare_scenarios",
+  "input": {
+   "purchase_price": 400000,
+   "monthly_rent": 3200,
+   "annual_property_tax": 4800,
+   "annual_insurance": 1800,
+   "scenarios": [
+    {
+     "label": "S1",
+     "annual_rate_pct": 7.5,
+     "down_payment_pct": 25,
+     "term_years": 30,
+     "interest_only": false
+    },
+    {
+     "label": "S2",
+     "annual_rate_pct": 7.0,
+     "down_payment_pct": 20,
+     "term_years": 30,
+     "interest_only": false
+    },
+    {
+     "label": "S3",
+     "annual_rate_pct": 8.0,
+     "down_payment_pct": 30,
+     "term_years": 30,
+     "interest_only": true
+    }
+   ]
+  },
+  "expect": {
+   "scenarios.0.loan_amount": 300000.0,
+   "scenarios.0.pitia": 2647.64,
+   "scenarios.0.dscr": 1.2,
+   "scenarios.0.tier.code": "1.00_to_1.24",
+   "scenarios.1.loan_amount": 320000.0,
+   "scenarios.1.pitia": 2678.97,
+   "scenarios.1.dscr": 1.19,
+   "scenarios.1.tier.code": "1.00_to_1.24",
+   "scenarios.2.loan_amount": 280000.0,
+   "scenarios.2.pitia": 2416.67,
+   "scenarios.2.dscr": 1.32,
+   "scenarios.2.tier.code": "1.25_plus",
+   "highest_dscr": "S3"
+  }
+ },
+ {
+  "name": "hand: 100k 6% 30y payment 599.55",
+  "tool": "amortization_summary",
+  "input": {
+   "loan_amount": 100000,
+   "annual_rate_pct": 6,
+   "term_years": 30,
+   "balance_after_years": [
+    30
+   ]
+  },
+  "expect": {
+   "monthly_principal_and_interest": 599.55,
+   "balances.0.balance": 0.0
+  }
+ },
+ {
+  "name": "hand: 200k 7% 30y payment 1330.60",
+  "tool": "calculate_dscr",
+  "input": {
+   "monthly_rent": 1663.25,
+   "loan_amount": 200000,
+   "annual_rate_pct": 7,
+   "term_years": 30
+  },
+  "expect": {
+   "monthly.principal_and_interest": 1330.6,
+   "dscr": 1.25,
+   "tier.code": "1.25_plus"
+  }
+ }
+]

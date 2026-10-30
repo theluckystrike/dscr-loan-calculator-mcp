@@ -1,0 +1,10 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.theluckystrike/dscr-loan-calculator-mcp",
+  "title": "DSCR Loan Calculator",
+  "description": "DSCR loan calculator for rental property: DSCR, lender tiers, max loan, rent needed, amortization.",
+  "version": "1.0.0",
+  "websiteUrl": "https://dscrradar.com/dscr-loan-calculator/",
+  "repository": { "url": "https://github.com/theluckystrike/dscr-loan-calculator-mcp", "source": "github" },
+  "remotes": [ { "type": "streamable-http", "url": "https://dscr-loan-calculator-mcp.lipmichal.workers.dev/mcp" } ]
+}
