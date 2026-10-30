@@ -45,7 +45,7 @@ claude mcp add --transport http dscr-loan-calculator https://dscr-loan-calculato
 Or run it locally over stdio:
 
 ```
-claude mcp add dscr-loan-calculator -- npx -y github:theluckystrike/dscr-loan-calculator-mcp
+claude mcp add dscr-loan-calculator -- npx -y dscr-loan-calculator-mcp
 ```
 
 ### Claude Desktop
@@ -57,7 +57,7 @@ Add to `claude_desktop_config.json`:
   "mcpServers": {
     "dscr-loan-calculator": {
       "command": "npx",
-      "args": ["-y", "github:theluckystrike/dscr-loan-calculator-mcp"]
+      "args": ["-y", "dscr-loan-calculator-mcp"]
     }
   }
 }
