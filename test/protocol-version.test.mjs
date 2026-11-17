@@ -4,7 +4,9 @@
 // values and unknown older versions must still be rejected with 400.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import worker from '../dist/worker.js';
+// worker.ts is not part of this repo's tsc build, so the test loads the wrangler bundle (out/worker.js), which is
+// exactly what gets deployed. CI writes it with `wrangler deploy --dry-run --outdir out` before `npm test`.
+import worker from '../out/worker.js';
 
 async function toolsList(version) {
   const headers = { 'content-type': 'application/json', accept: 'application/json, text/event-stream' };
